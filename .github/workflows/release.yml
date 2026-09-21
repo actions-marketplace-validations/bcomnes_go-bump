@@ -46,12 +46,13 @@ jobs:
       - run: make all
 
       - id: release
-        uses: ./
+        uses: $/
         with:
           version-type: ${{ inputs.version-type }}
           new-version: ${{ inputs.new-version }}
           github-token: ${{ github.token }}
           pre-publish: make all
+          seed-proxy: false
           major-branch: true
 
       - name: Verify credentials were not persisted
